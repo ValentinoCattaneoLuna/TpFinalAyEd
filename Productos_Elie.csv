@@ -1,0 +1,74 @@
+Codigo_Producto;Nombre_producto;Precio;Categoria
+1;Arroz;1000;Alimentos
+2;morronAceite de Oliva;2396.00;Alimentos
+3;Leche;720.00;Alimentos
+4;Pan Integral;1280.00;Alimentos
+5;Pollo;3500.00;Alimentos
+6;Papa;600.00;Alimentos
+7;Yogur;900.00;Alimentos
+8;Galletas;1100.00;Alimentos
+9;Cafe Instantaneo;1800.00;Bebidas
+10;Queso;1520.00;Alimentos
+11;Fideos;796.00;Alimentos
+12;Tomates;800.00;Alimentos
+13;Jabon Neutro;796.00;Higiene Personal
+14;Detergente;1400.00;Higiene Personal
+15;Shampoo;1680.00;Higiene Personal
+16;Cepillo de Dientes;500.00;Higiene Personal
+17;Papel Higienico;1100.00;Higiene Personal
+18;Jabon Liquido;600.00;Higiene Personal
+19;Salsa de Tomate;900.00;Alimentos
+20;Cerveza;1196.00;Bebidas
+21;Harina;700.00;Alimentos
+22;Papel de Cocina;480.00;Higiene Personal
+23;Huevos;1400.00;Alimentos
+24;Lata de Atun ;1120.00;Alimentos
+25;Azucar;796.00;Alimentos
+26;Cereal;1500.00;Alimentos
+27;Pescado Congelado;2600.00;Alimentos
+28;Mermelada;900.00;Alimentos
+29;Aceitunas;1000.00;Alimentos
+30;Avena;1200.00;Alimentos
+31;Manteca;1800.00;Alimentos
+32;Peine;800.00;Higiene Personal
+33;Jugo de Naranja;2400.00;Bebidas
+34;Pasta Dental;600.00;Higiene Personal
+35;Morron;1200.00;Alimentos
+36;Pescado Fresco;5000.00;Alimentos
+37;Cerveza Artesanal;3200.00;Bebidas
+38;Palta;1500.00;Alimentos
+39;Chocolate;1600.00;Alimentos
+40;Agua Mineral;800.00;Bebidas
+41;Choclo;1800.00;Alimentos
+42;Salchichas;2000.00;Alimentos
+43;Helado;1200.00;Alimentos
+44;Vino Tinto;2800.00;Bebidas
+45;Cereal con Azucar;900.00;Alimentos
+46;Pure de Tomate;1000.00;Alimentos
+47;Cafe Instantaneo;2000.00;Bebidas
+48;Salsa BBQ;1200.00;Alimentos
+49;Papel de Aluminio;800.00;Articulos de Casa
+50;Galletas Saladas;1600.00;Alimentos
+51;Salmon Ahumado;3500.00;Alimentos
+52;Gaseosas;900.00;Bebidas
+53;Miel;1800.00;Alimentos
+54;Almendras;2000.00;Alimentos
+55;Maquina de Afeitar;1200.00;Higiene Personal
+56;Salsa de Soja;1000.00;Alimentos
+57;Papel de Cocina;800.00;Articulos de Casa
+58;Granola;1500.00;Alimentos
+59;Crema de Afeitar;600.00;Higiene Personal
+60;Vinagre;1200.00;Alimentos
+61;Te Verde;1000.00;Bebidas
+62;Sopa de Verduras;1100.00;Alimentos
+63;Mayonesa;1000.00;Alimentos
+64;Limpia Vidrios;600.00;Articulos de Casa
+65;Pistachos;1800.00;Alimentos
+66;Jabon Corporal;1000.00;Higiene Personal
+67;Acondicionador;800.00;Higiene Personal
+68;Hamburguesas Congeladas;3500.00;Alimentos
+69;Limon;500.00;Alimentos
+70;Mantequilla de Mani;2000.00;Alimentos
+71;Servilletas;900.00;Articulos de Casa
+72;Mousse de Chocolate;1200.00;Alimentos
+73;Pimienta Negra;800.00;Alimentos
