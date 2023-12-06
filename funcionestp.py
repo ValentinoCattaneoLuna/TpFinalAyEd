@@ -27,7 +27,7 @@ def extraer_productos(productos):
 
 def calcular_precio(productos,producto, cantidad):
     for elem in productos:
-        if producto == elem[1].lower():
+        if producto.lower() == elem[1].lower():
             return float(elem[2]) * cantidad
             
 def calcular_total(lista_productos):
