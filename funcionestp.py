@@ -1,40 +1,42 @@
 from datetime import datetime
 from tabulate import tabulate as tb
-def leer_archivo():
+from typing import List, Tuple
+
+def leer_archivo()-> List[str]:
     try:
         with open("Productos_Elie.csv","rt", encoding="utf-8-sig") as arch:
             return [lineas for lineas in arch]
     except:
         return []
-    
-def parsear(archivo):
+   
+def parsear(archivo: List[str]) -> Tuple[List[str]]:
     arch =  [lineas.strip().split(";") for lineas in archivo]
     return arch[0], arch[1:]
 
-def cargar_dia():
+def cargar_dia()->str:
     fecha_actual = datetime.now()
     nombre_dia = fecha_actual.strftime("%A")
     return nombre_dia
 
-def mostrar_menu():
+def mostrar_menu() ->None:
     opc=["1. Procesar Venta", "0. Cerrar Programa"]
     for _ in opc:
         print(_)
         
         
-def extraer_productos(productos):
+def extraer_productos(productos: List[List[str]]) ->List[str]:
     return [prod[1].lower() for prod in productos]
 
-def calcular_precio(productos,producto, cantidad):
+def calcular_precio(productos: List[str] ,producto: str, cantidad: int)->float:
     for elem in productos:
         if producto.lower() == elem[1].lower():
             return float(elem[2]) * cantidad
             
-def calcular_total(lista_productos):
+def calcular_total(lista_productos: List[Tuple[str, int, float]]) ->float :
     return sum(elem[2] for elem in lista_productos)
 
 
-def calcular_descuento(dia):
+def calcular_descuento(dia:str) ->float:
      dias_descuento = {"monday": 0.15,
                        "tuesday": 0.05,
                        "wednesday": 0.1,
@@ -44,10 +46,10 @@ def calcular_descuento(dia):
                        }
      return dias_descuento.get(dia.lower(), 0)
     
-def aplicar_descuento(total, descuento):
+def aplicar_descuento(total:float, descuento:float) -> float:
     return total - total * descuento
 
-def cargar_productos(productos):
+def cargar_productos(productos: List[List[str]]) -> List[Tuple[str, int, float]]: 
     lista_prod=[]
     while True:
         producto=input("Ingrese el Nombre del producto(Enter terminar carga): ").strip()
@@ -66,7 +68,7 @@ def cargar_productos(productos):
         else:
             print("El producto ingresado es invalido o no esta en registrado en la base de datos")
             
-def generar_ticket(productos_cargados):
+def generar_ticket(productos_cargados: List[Tuple[str, int, float]]) -> str:
     encabezado = ["Producto","Cantidad","Precio"]
     
     lineas = [(prod[0], prod[1], f"${prod[2]:.2f}") for prod in productos_cargados]
@@ -81,8 +83,7 @@ def generar_ticket(productos_cargados):
     ticket = f"\n{tabla}\n\nMonto Total: ${total:.2f}\nMonto Final con Descuento: ${precio_final:.2f}\n"
     
     return ticket
-
-#<>             
+    
 if __name__ == "__main__":
     print()
             
