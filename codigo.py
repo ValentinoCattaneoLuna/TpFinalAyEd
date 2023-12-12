@@ -1,6 +1,6 @@
 import funcionestp as fn
 
-def main():
+def main() ->None:
     arch=fn.leer_archivo()
     if arch:
         encabezado,datos = fn.parsear(arch)
