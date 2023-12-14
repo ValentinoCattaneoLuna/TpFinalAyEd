@@ -4,7 +4,9 @@ from typing import List, Tuple
 
 def leer_archivo()-> List[str]:
     """
-    Lee el archivo 'Productos_Elie.csv' y retorna una lista con las líneas del archivo.
+    Lee el archivo 'Productos_Elie.csv' 
+    Pre: No recibe parametros.
+    Post: retorna una lista con las líneas del archivo.
     """
     try:
         with open("Productos_Elie.csv","rt", encoding="utf-8-sig") as arch:
@@ -14,14 +16,18 @@ def leer_archivo()-> List[str]:
    
 def parsear(archivo: List[str]) -> Tuple[List[str]]:
     """
-    Toma la información de una lista con los datos de un archivo CSV y retorna una tupla dividiéndolo en encabezado y datos.
+    Separa los datos de un archivo CSV en 'Encabezado' y 'Datos'.
+    Pre: Lista de strings con datos de un archivo CSV.
+    Post: Retorna una tupla con encabezado y datos.
     """
     arch =  [lineas.strip().split(";") for lineas in archivo]
     return arch[0], arch[1:]
 
 def cargar_dia()->str:
     """
-    Retorna el nombre del día actual.
+    Obtiene el día actual
+    Pre: No recibe parametros.
+    Post: Retorna el nombre del día actual.
     """
     fecha_actual = datetime.now()
     nombre_dia = fecha_actual.strftime("%A")
@@ -30,6 +36,8 @@ def cargar_dia()->str:
 def mostrar_menu() ->None:
     """
     Muestra las opciones del menú.
+    Pre: No recibe parametros.
+    Post: Retorna None
     """
     opc=["1. Procesar Venta", "0. Cerrar Programa"]
     for _ in opc:
@@ -38,14 +46,17 @@ def mostrar_menu() ->None:
         
 def extraer_productos(productos: List[List[str]]) ->List[str]:
     """
-    Toma los datos de la matriz de las líneas del archivo CSV y retorna una lista con el nombre de los productos.
+    Extrae todos los productos de una matriz 
+    Pre: Matriz de las líneas del archivo CSV
+    Post: Retorna una lista con el nombre de los productos.
     """
     return [prod[1].lower() for prod in productos]
 
 def calcular_precio(productos: List[str] ,producto: str, cantidad: int)->float:
     """
-    Recibe una lista con los datos de los productos, el nombre del producto elegido y la cantidad comprada.
-    Retorna el precio total de la cantidad del producto elegido.
+    Calcula el precio total de un producto.
+    Pre: Recibe una lista con los datos de los productos, el nombre del producto elegido y la cantidad comprada.
+    Post: Retorna el precio total de la cantidad del producto elegido.
     """
     for elem in productos:
         if producto.lower() == elem[1].lower():
@@ -53,14 +64,18 @@ def calcular_precio(productos: List[str] ,producto: str, cantidad: int)->float:
             
 def calcular_total(lista_productos: List[Tuple[str, int, float]]) ->float :
     """
-    Recibe una lista de tuplas con: 'nombre_del_producto', 'cantidad' y 'precio_total' y Retorna la suma de todos los 'precio_total'.
+    Suma todos los precios totales de los productos cargados.
+    Pre: Recibe una lista de tuplas con: 'nombre_del_producto', 'cantidad' y 'precio_total'
+    Post: Retorna la suma de todos los 'precio_total'.
     """
     return sum(elem[2] for elem in lista_productos)
 
 
 def calcular_descuento(dia:str) ->float:
     """
-    Recibe el día actual y retorna un flotante que simboliza el descuento dependiendo del día.
+    Calcula el descuento de los productos dependiendo del dia.
+    Pre:  Recibe el día actual
+    Post: Retorna un flotante que simboliza el descuento dependiendo del día. 
     """
     dias_descuento = {"monday": 0.15,
                        "tuesday": 0.05,
@@ -73,17 +88,20 @@ def calcular_descuento(dia:str) ->float:
     
 def aplicar_descuento(total:float, descuento:float) -> float:
     """
-    Recibe el precio total de los productos y el flotante que simboliza el descuento y retorna el precio total aplicando el descuento.
+    Calcula el precio precio final con el descuento del día.
+    Pre: Recibe el precio total de los productos y el flotante que simboliza el descuento
+    Post: Retorna el precio total aplicando el descuento (total - total * descuento).
     """
     return total - total * descuento
 
 def cargar_productos(productos: List[List[str]]) -> List[Tuple[str, int, float]]: 
     """
-    Recibe la matriz con los datos de los productos del archivo CSV.
-    La función, en un bucle, solicita al usuario que ingrese el nombre de un producto. Si este se encuentra en la lista, se le solicita la cantidad del mismo; de lo contrario, se muestra un error.
+    La funcion permite la carga de productos. 
+    En un bucle, solicita al usuario que ingrese el nombre de un producto. Si este se encuentra en la lista, se le solicita la cantidad del mismo; de lo contrario, se muestra un error.
     Si el usuario ingresa un valor inferior a 1 como cantidad, se le pide que ingrese el número nuevamente; de lo contrario, se muestra un error y se solicita el nombre del producto nuevamente.
     El bucle termina cuando el usuario presiona 'ENTER' al ingresar el nombre del producto. 
-    La función retorna una lista de tuplas que contienen el nombre del producto, la cantidad y el precio total de la cantidad del producto.
+    Pre: Recibe la matriz con los datos de los productos del archivo CSV.
+    Post: Retorna una lista de tuplas que contienen el nombre del producto, la cantidad y el precio total de la cantidad del producto.
     """
     lista_prod=[]
     while True:
@@ -105,9 +123,9 @@ def cargar_productos(productos: List[List[str]]) -> List[Tuple[str, int, float]]
             
 def generar_ticket(productos_cargados: List[Tuple[str, int, float]]) -> str:
     """
-    Recibe una lista de tuplas con 'nombre_del_producto', 'cantidad' y 'precio_total'.
-    Calcula el precio total, el descuento del día y el precio final con el descuento aplicado.
-    Retorna una cadena que simula ser un ticket de compra con 'Producto', 'Cantidad' y 'Precio', además del subtotal y el precio final con descuento.
+    Genera un ticket de compra; Calcula el precio total, el descuento del día y el precio final con el descuento aplicado. 
+    Pre: Recibe una lista de tuplas con 'nombre_del_producto', 'cantidad' y 'precio_total'.
+    Post: Retorna un string que simula ser un ticket de compra con 'Producto', 'Cantidad' y 'Precio', además del subtotal y el precio final con descuento.
     """
     encabezado = ["Producto","Cantidad","Precio"]
     
