@@ -8,6 +8,8 @@ def main() ->None:
     3. Permite al usuario procesar una venta, cargando productos y generando un ticket de compra.
     4. Permite al usuario cerrar el programa.
     El programa solo se ejecuta si no hay errores al leer el archivo. En caso contrario, se muestra un error.
+    Pre: No recibe parametros.
+    Post: Retorna None.
     """
     arch=fn.leer_archivo()
     if arch:
